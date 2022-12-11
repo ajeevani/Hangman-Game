@@ -2,7 +2,6 @@
 #define CPPGAMES_HANGMAN_H_
 
 #include <iostream>
-#include <string>
 
 namespace cppgames
 {
