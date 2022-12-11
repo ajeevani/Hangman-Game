@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <string>
 #include "hangman.h"
 
 using namespace std;
@@ -19,7 +19,7 @@ namespace cppgames
 
     // Method that prints the current state of the game
     void Hangman::PrintState() const {
-        cout << "Word: " << m_progress << endl;
+        cout << flush << "Word: " << m_progress << endl;
         cout << "Guesses remaining: " << m_remainingguesses << endl;
     }
 
@@ -47,14 +47,31 @@ namespace cppgames
     void Hangman::PlayRound() {
         PrintState();
         cout << "Guess a letter: ";
+        bool pass = false;
+        char input[100];
         char letter;
-        cin >> letter;
+        while (!pass)
+        {
+            cin.clear();
+            cin >> input;
+
+            if (strlen(input) > 1)
+            {
+                cout << "Invalid input, Please input only 1 letter: ";
+            }
+            else
+            {
+                letter = input[0];
+                pass = true;
+            }
+        }
+
         if (m_word.find(letter) != string::npos) {
-            cout << "Good guess!" << endl;
+            cout << "Good guess!" << endl << endl;
             UpdateProgress(letter);
         }
         else {
-            cout << "Wrong guess!" << endl;
+            cout << "Wrong guess!" << endl << endl;
             m_remainingguesses--;
         }
 
