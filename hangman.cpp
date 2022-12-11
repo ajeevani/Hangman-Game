@@ -48,14 +48,14 @@ namespace cppgames
         PrintState();
         cout << "Guess a letter: ";
         bool pass = false;
-        char input[100];
+        string input;
         char letter;
         while (!pass)
         {
             cin.clear();
             cin >> input;
 
-            if (strlen(input) > 1)
+            if (input.length() > 1)
             {
                 cout << "Invalid input, Please input only 1 letter: ";
             }
