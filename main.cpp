@@ -6,7 +6,7 @@
 using namespace cppgames;
 
 int main() {
-    // Create a Hangman object with the word "hangman" and 10 guesses
+    // Create a Hangman object with the word "testgame" and 10 guesses
     Hangman game("testgame", 10);
     // Play rounds of the game until it's over
     while (!game.IsGameOver()) {
